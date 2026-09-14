@@ -1,1 +1,5 @@
-# Rick-Morty(API)
+# Rick-Morty (API)
+
+### Requirements
+
+### Technologies to use
