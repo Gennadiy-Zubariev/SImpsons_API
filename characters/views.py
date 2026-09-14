@@ -1,12 +1,14 @@
 from random import choice
 
+from rest_framework import generics
 from rest_framework import status
+from rest_framework.filters import SearchFilter
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from characters.models import Character
-from characters.serializers import CharacterSerializer
+from characters.serializers import CharacterSerializer, CharacterListSerializer
 
 
 class RandomCharacterView(APIView):
@@ -16,3 +18,11 @@ class RandomCharacterView(APIView):
         random_character = Character.objects.get(pk=random_pk)
         serializer = CharacterSerializer(random_character)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CharacterListView(generics.ListAPIView):
+    queryset = Character.objects.all()
+    serializer_class = CharacterListSerializer
+    filter_backends = (SearchFilter,)
+
+    search_fields = ("name",)
