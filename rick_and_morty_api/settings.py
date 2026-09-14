@@ -119,3 +119,5 @@ MAILERS = {
         "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
 }
+
+RICK_AND_MORTY_API_CHARACTERS_URL = "https://rickandmortyapi.com/api/character"
