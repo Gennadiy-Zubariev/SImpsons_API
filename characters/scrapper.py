@@ -7,7 +7,7 @@ from characters.models import Character
 
 
 def scrape_characters() -> list[Character]:
-    next_url_to_scrape = settings.RICK_AND_MORTY_API_CHARACTERS_URL
+    next_url_to_scrape = settings.SIMPSONS_API_CHARACTERS_URL
     characters = []
     while next_url_to_scrape is not None:
         response = requests.get(next_url_to_scrape)
@@ -27,13 +27,14 @@ def scrape_characters() -> list[Character]:
                 Character(
                     api_id=character_dict["id"],
                     name=character_dict["name"],
-                    status=character_dict["status"],
-                    species=character_dict["species"],
+                    age=character_dict["age"],
+                    occupation=character_dict["occupation"],
                     gender=character_dict["gender"],
-                    image=character_dict["image"],
+                    status=character_dict["status"],
+                    image=f'{settings.SIMPSONS_API_CDN_URL}{character_dict["portrait_path"]}',
                 )
             )
-        next_url_to_scrape = characters_response["info"]["next"]
+        next_url_to_scrape = characters_response["next"]
 
     return characters
 

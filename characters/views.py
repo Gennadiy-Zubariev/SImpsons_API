@@ -16,7 +16,7 @@ class RandomCharacterView(APIView):
         responses={status.HTTP_200_OK: CharacterSerializer},
     )
     def get(self, request: Request) -> Response:
-        """Get random character from Rick and Morty world"""
+        """Get random character from Simpsons world"""
         pks = Character.objects.values_list("pk", flat=True)
         random_pk = choice(pks)
         random_character = Character.objects.get(pk=random_pk)
@@ -29,7 +29,7 @@ class CharacterListView(generics.ListAPIView):
     serializer_class = CharacterListSerializer
 
     def get_queryset(self):
-        queryset = self.queryset
+        queryset = self.queryset.all()
         name = self.request.query_params.get("name")
         if name:
             queryset = queryset.filter(name__icontains=name)

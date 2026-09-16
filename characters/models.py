@@ -15,9 +15,10 @@ class Character(models.Model):
 
     api_id = models.IntegerField(unique=True)
     name = models.CharField(max_length=255)
-    status = models.CharField(max_length=50, choices=StatusChoices.choices)
-    species = models.CharField(max_length=255)
+    age = models.IntegerField(null=True, blank=True)
+    occupation = models.CharField(max_length=255)
     gender = models.CharField(max_length=255, choices=GenderChoices.choices)
+    status = models.CharField(max_length=50, choices=StatusChoices.choices)
     image = models.URLField(max_length=255, unique=True)
 
     def __str__(self):

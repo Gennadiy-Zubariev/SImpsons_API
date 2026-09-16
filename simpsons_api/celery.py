@@ -3,9 +3,9 @@ import os
 from celery import Celery
 
 # Set the default Django settings module for the 'celery' program.
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rick_and_morty_api.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "simpsons_api.settings")
 
-app = Celery("rick_and_morty_apiв")
+app = Celery("simpsons_api")
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.

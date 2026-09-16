@@ -10,9 +10,10 @@ class CharacterSerializer(serializers.ModelSerializer):
             "id",
             "api_id",
             "name",
-            "status",
-            "species",
+            "age",
+            "occupation",
             "gender",
+            "status",
             "image",
         )
 
