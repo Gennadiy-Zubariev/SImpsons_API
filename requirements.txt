@@ -32,8 +32,11 @@ pathspec==1.1.1
 platformdirs==4.11.8
 prompt_toolkit==3.0.53
 propcache==0.5.2
+psycopg==3.3.5
+psycopg-binary==3.3.5
 python-crontab==3.4.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.2.3
 pytokens==0.4.1
 PyYAML==6.0.3
 redis==8.1.0
@@ -49,3 +52,4 @@ urllib3==2.7.0
 vine==5.1.0
 wcwidth==0.8.3
 yarl==1.24.5
+flower
